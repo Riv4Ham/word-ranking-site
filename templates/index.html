@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Ranker</title>
+</head>
+<body>
+    <h1>Which word do you like better?</h1>
+    <form method="POST" action="/vote">
+        <button type="submit" name="vote" value="{{ word1 }}">{{ word1 }}</button>
+        <button type="submit" name="vote" value="{{ word2 }}">{{ word2 }}</button>
+    </form>
+    <h2>Leaderboard</h2>
+    <table border="1">
+        <tr>
+            <th>Rank</th>
+            <th>Word</th>
+            <th>Score</th>
+        </tr>
+        {% for row in leaderboard %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
